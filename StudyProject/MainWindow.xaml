@@ -1,0 +1,43 @@
+﻿<Window x:Class="StudyProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
+        xmlns:local="clr-namespace:StudyProject"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000">
+    <Window.Resources>
+        <ResourceDictionary>
+           
+            <Style TargetType="Button" x:Key="NavButton" BasedOn="{StaticResource  MaterialDesignOutlinedButton}">
+
+                <Setter Property="Background" Value="Transparent"></Setter>
+                <Setter Property="BorderThickness" Value="0,0,0,2"></Setter>
+                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="#032852"></Setter>
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"  Background="#2971c3">
+            <Button Style="{StaticResource NavButton}" Height="48" Content="Корзина"></Button>
+            <Button Style="{StaticResource NavButton}" Height="48" Content="Статистика"></Button>
+            <Button Style="{StaticResource NavButton}" Height="48"  Command="{Binding OpenEditBase }" Content="Редактирование базы"></Button>
+            
+        </StackPanel>
+        <ContentControl Grid.Row="1" Content="{Binding MainControl}"></ContentControl>
+    </Grid>
+</Window>

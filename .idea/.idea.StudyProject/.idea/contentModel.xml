@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Ilya\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Ilya\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_StudyProject.1134208421.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Ilya\Documents\MyProject\Kwork\StudyProject" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive">
+        <e p="SQLitePCLRaw.lib.e_sqlite3.2.0.4\runtimes" t="Include">
+          <e p="win-arm" t="Include">
+            <e p="native" t="Include">
+              <e p="e_sqlite3.dll" t="Include" />
+            </e>
+          </e>
+          <e p="win-x64" t="Include">
+            <e p="native" t="Include">
+              <e p="e_sqlite3.dll" t="Include" />
+            </e>
+          </e>
+          <e p="win-x86" t="Include">
+            <e p="native" t="Include">
+              <e p="e_sqlite3.dll" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="StudyProject" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainWindow.xaml" t="Include" />
+        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="Model" t="Include">
+          <e p="ConnectDB.cs" t="Include" />
+          <e p="Model.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="App.g.cs" t="Include" />
+            <e p="GeneratedInternalTypeHelper.g.cs" t="Include" />
+            <e p="MainWindow.g.cs" t="Include" />
+            <e p="StudyProject_Content.g.cs" t="Include" />
+            <e p="View" t="Include">
+              <e p="EditBase" t="Include">
+                <e p="EditGoods.g.cs" t="Include" />
+                <e p="EditStore.g.cs" t="Include" />
+                <e p="MainEditPage.g.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Settinng" t="Include">
+          <e p="Converter.cs" t="Include" />
+        </e>
+        <e p="StudyProject.csproj" t="IncludeRecursive" />
+        <e p="View" t="Include">
+          <e p="EditBase" t="Include">
+            <e p="EditGoods.xaml" t="Include" />
+            <e p="EditGoods.xaml.cs" t="Include" />
+            <e p="EditStore.xaml" t="Include" />
+            <e p="EditStore.xaml.cs" t="Include" />
+            <e p="MainEditPage.xaml" t="Include" />
+            <e p="MainEditPage.xaml.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ViewModel" t="Include">
+          <e p="BaseViewModel.cs" t="Include" />
+          <e p="EditBaseViewModel.cs" t="Include" />
+          <e p="MainViewModel.cs" t="Include" />
+        </e>
+      </e>
+      <e p="StudyProject.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
