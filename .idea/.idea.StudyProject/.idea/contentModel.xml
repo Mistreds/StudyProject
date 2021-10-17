@@ -5,6 +5,10 @@
     <e p="C:\Users\Ilya\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_StudyProject.1134208421.00" t="ExcludeRecursive" />
     <e p="C:\Users\Ilya\Documents\MyProject\Kwork\StudyProject" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive">
+        <e p="Grpc.Core.2.36.4\runtimes\linux-x64\native\libgrpc_csharp_ext.x64.so" t="Include" />
+        <e p="Grpc.Core.2.36.4\runtimes\osx-x64\native\libgrpc_csharp_ext.x64.dylib" t="Include" />
+        <e p="Grpc.Core.2.36.4\runtimes\win-x64\native\grpc_csharp_ext.x64.dll" t="Include" />
+        <e p="Grpc.Core.2.36.4\runtimes\win-x86\native\grpc_csharp_ext.x86.dll" t="Include" />
         <e p="SQLitePCLRaw.lib.e_sqlite3.2.0.4\runtimes" t="Include">
           <e p="win-arm" t="Include">
             <e p="native" t="Include">
@@ -28,8 +32,12 @@
         <e p="App.xaml" t="Include" />
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Connected" t="Include">
+          <e p="Firebase.cs" t="Include" />
+        </e>
         <e p="MainWindow.xaml" t="Include" />
         <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="Migrations" t="Include" />
         <e p="Model" t="Include">
           <e p="ConnectDB.cs" t="Include" />
           <e p="Model.cs" t="Include" />
@@ -42,6 +50,7 @@
             <e p="StudyProject_Content.g.cs" t="Include" />
             <e p="View" t="Include">
               <e p="EditBase" t="Include">
+                <e p="CreateQR.g.cs" t="Include" />
                 <e p="EditGoods.g.cs" t="Include" />
                 <e p="EditStore.g.cs" t="Include" />
                 <e p="MainEditPage.g.cs" t="Include" />
@@ -61,8 +70,11 @@
           <e p="Converter.cs" t="Include" />
         </e>
         <e p="StudyProject.csproj" t="IncludeRecursive" />
+        <e p="test-66d74-firebase-adminsdk-jz0nu-f863f22421.json" t="Include" />
         <e p="View" t="Include">
           <e p="EditBase" t="Include">
+            <e p="CreateQR.xaml" t="Include" />
+            <e p="CreateQR.xaml.cs" t="Include" />
             <e p="EditGoods.xaml" t="Include" />
             <e p="EditGoods.xaml.cs" t="Include" />
             <e p="EditStore.xaml" t="Include" />

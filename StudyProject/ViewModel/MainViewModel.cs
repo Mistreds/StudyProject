@@ -25,9 +25,11 @@ namespace StudyProject
 
        private List<UserControl> Controls;
        public MainViewModel()
-       {
-           EditBaseViewModel=new EditBaseViewModel();
+        {
+            var firebase = new Firebase();
+            EditBaseViewModel =new EditBaseViewModel();
            Controls=new List<UserControl>{new View.EditBase.MainEditPage()};
+           
        }
 
        public ICommand OpenEditBase

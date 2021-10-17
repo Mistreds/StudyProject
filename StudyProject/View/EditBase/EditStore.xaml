@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:locals="clr-namespace:StudyProject.ViewModel"
              xmlns:conv="clr-namespace:StudyProject.Settinng"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              d:DataContext="{d:DesignInstance Type=locals:EditBaseViewModel}"
              xmlns:local="clr-namespace:StudyProject.View.EditBase"
              mc:Ignorable="d"
@@ -17,6 +18,10 @@
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition Width="10" ></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
         <DataGrid Grid.Column="1" AutoGenerateColumns="False" ItemsSource="{Binding StoredList }">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование магазина" Width="1*" Binding="{Binding StoreName, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
@@ -29,5 +34,14 @@
                 <DataGridTextColumn Header="Наименование категории" Width="1*" Binding="{Binding TypeName}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Button Margin="10" Content="Сохранить" Command="{Binding UpdateStore}"></Button>
+            <Button Margin="10" Content="Отменить" Command="{Binding CanselStore}"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Margin="10" Content="Сохранить" Command="{Binding UpdateGoodType}"></Button>
+            <Button Margin="10" Content="Отменить" Command="{Binding CanselType}"></Button>
+        </StackPanel>
     </Grid>
 </UserControl>
