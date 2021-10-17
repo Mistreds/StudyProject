@@ -301,11 +301,19 @@
     </ApplicationDefinition>
     <Compile Include="Connected\ConnectDB.cs" />
     <Compile Include="Connected\Firebase.cs" />
+    <Compile Include="Model\Basket.cs" />
     <Compile Include="Settinng\Converter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BasketViewModel.cs" />
     <Compile Include="ViewModel\EditBaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\StatisticsViewModel.cs" />
+    <Compile Include="View\Basket\AddOffenGood.xaml.cs">
+      <DependentUpon>AddOffenGood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Basket\MainBasketPage.xaml.cs">
+      <DependentUpon>MainBasketPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditBase\CreateQR.xaml.cs">
       <DependentUpon>CreateQR.xaml</DependentUpon>
     </Compile>
@@ -317,6 +325,9 @@
     </Compile>
     <Compile Include="View\EditBase\MainEditPage.xaml.cs">
       <DependentUpon>MainEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Statistics\StatisticsMain.xaml.cs">
+      <DependentUpon>StatisticsMain.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -330,6 +341,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Basket\AddOffenGood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Basket\MainBasketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EditBase\CreateQR.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -340,6 +359,10 @@
     </Page>
     <Page Include="View\EditBase\EditStore.xaml" />
     <Page Include="View\EditBase\MainEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Statistics\StatisticsMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -376,10 +399,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <ProjectReference Include="..\BAL\BAL.csproj">
+      <Project>{89ad7e1c-4481-41f9-bc93-8c16b3beba28}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0-ci60\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0-ci60\build\MaterialDesignThemes.targets')" />

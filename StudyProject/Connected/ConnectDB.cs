@@ -13,11 +13,13 @@ namespace StudyProject
         public  DbSet<Model.Store> Stores { get; set; }
         public  DbSet<Model.GoodType> GoodTypes { get; set; }
         public  DbSet<Model.Good> Goods { get; set; }
+        public DbSet<Model.Order> Orders { get; set; }
+        public DbSet<Model.Basket> Baskets { get; set; }
         public ConnectDB()
         {
             //Database.EnsureDeleted();
             Database.EnsureCreated();
-            //Database.Migrate();
+            Database.Migrate();
         }
 
             
@@ -36,12 +38,17 @@ namespace StudyProject
             modelBuilder.Entity<Model.Store>(b => b.ToTable("store"));
             modelBuilder.Entity<Model.GoodType>(b => b.ToTable("good_type"));
             #endregion
-
             #region Goods
-
             modelBuilder.Entity<Model.Good>(b => b.ToTable("good"));
             modelBuilder.Entity<Model.Good>().Ignore(p => p.Pictures);
+            modelBuilder.Entity<Model.Good>().Ignore(p => p.Count);
+           
+            #endregion
+            #region Basket
 
+            modelBuilder.Entity<Model.Order>(p => p.ToTable("order"));
+            modelBuilder.Entity<Model.Basket>(p => p.ToTable("basket"));
+            modelBuilder.Entity<Model.Basket>().Ignore(p => p.QRstring);
             #endregion
 
 

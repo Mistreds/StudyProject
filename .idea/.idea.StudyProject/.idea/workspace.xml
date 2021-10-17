@@ -10,18 +10,14 @@
     <list default="true" id="24f388a8-b744-48d7-9937-7ed123ef7cd9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Connected/ConnectDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Connected/ConnectDB.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Model/ConnectDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Model/ConnectDB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Model/Model.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Model/Model.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Properties/Resources.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Properties/Settings.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Properties/Settings.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Model/Goods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Model/Goods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Settinng/Converter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/Settinng/Converter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/StudyProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/StudyProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/View/EditBase/EditGoods.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/View/EditBase/EditGoods.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/View/EditBase/EditStore.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/View/EditBase/EditStore.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,19 +34,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/StudyProject/App.xaml" />
-        <option value="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" />
         <option value="$PROJECT_DIR$/StudyProject/MainWindow.xaml.cs" />
         <option value="$PROJECT_DIR$/StudyProject/View/EditBase/MainEditPage.xaml.cs" />
         <option value="$PROJECT_DIR$/StudyProject/ViewModel/BaseViewModel.cs" />
         <option value="$PROJECT_DIR$/StudyProject/View/EditBase/MainEditPage.xaml" />
         <option value="$PROJECT_DIR$/StudyProject/View/EditBase/EditStore.xaml" />
-        <option value="$PROJECT_DIR$/StudyProject/MainWindow.xaml" />
         <option value="$PROJECT_DIR$/StudyProject/Model/ConnectDB.cs" />
         <option value="$PROJECT_DIR$/StudyProject/Connected/Firebase.cs" />
         <option value="$PROJECT_DIR$/StudyProject/Model/Model.cs" />
         <option value="$PROJECT_DIR$/StudyProject/View/EditBase/EditGoods.xaml" />
         <option value="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" />
         <option value="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" />
+        <option value="$PROJECT_DIR$/StudyProject/Settinng/Converter.cs" />
+        <option value="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" />
+        <option value="$PROJECT_DIR$/StudyProject/MainWindow.xaml" />
+        <option value="$PROJECT_DIR$/StudyProject/Connected/ConnectDB.cs" />
+        <option value="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" />
+        <option value="$PROJECT_DIR$/StudyProject/Model/Goods.cs" />
       </list>
     </option>
   </component>
@@ -113,6 +113,7 @@
       <workItem from="1634383708613" duration="12448000" />
       <workItem from="1634397295248" duration="8833000" />
       <workItem from="1634419927426" duration="5113000" />
+      <workItem from="1634462939440" duration="4782000" />
     </task>
     <servers />
   </component>
@@ -125,28 +126,28 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="199" key="GridCell.Tab.0.bottom" timestamp="1634427775796">
+    <state width="1493" height="199" key="GridCell.Tab.0.bottom" timestamp="1634468964703">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="199" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634427775796" />
+    <state width="1493" height="199" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634468964703" />
     <state width="1493" height="288" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906716" />
     <state width="1493" height="200" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1634389655762" />
-    <state width="1493" height="199" key="GridCell.Tab.0.center" timestamp="1634427775796">
+    <state width="1493" height="199" key="GridCell.Tab.0.center" timestamp="1634468964703">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="199" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634427775796" />
+    <state width="1493" height="199" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634468964703" />
     <state width="1493" height="288" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906715" />
     <state width="1493" height="200" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1634389655762" />
-    <state width="1493" height="199" key="GridCell.Tab.0.left" timestamp="1634427775796">
+    <state width="1493" height="199" key="GridCell.Tab.0.left" timestamp="1634468964703">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="199" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634427775796" />
+    <state width="1493" height="199" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634468964703" />
     <state width="1493" height="288" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906715" />
     <state width="1493" height="200" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1634389655762" />
-    <state width="1493" height="199" key="GridCell.Tab.0.right" timestamp="1634427775796">
+    <state width="1493" height="199" key="GridCell.Tab.0.right" timestamp="1634468964703">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="199" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634427775796" />
+    <state width="1493" height="199" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634468964703" />
     <state width="1493" height="288" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906715" />
     <state width="1493" height="200" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1634389655762" />
     <state width="1493" height="288" key="GridCell.Tab.1.bottom" timestamp="1634399634323">
@@ -234,15 +235,19 @@
     </state>
     <state x="374" y="49" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634390288903" />
     <state x="374" y="49" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1634320000214" />
-    <state x="1920" y="0" width="1507" height="811" key="dock-window-1" timestamp="1634399633676">
+    <state x="1920" y="0" width="1507" height="811" key="dock-window-1" timestamp="1634464348415">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
-    <state x="1920" y="0" width="1507" height="811" key="dock-window-1/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634399633676" />
+    <state x="1920" y="0" width="1507" height="811" key="dock-window-1/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634464348415" />
     <state x="419" y="261" width="1509" height="410" key="dock-window-1/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396227747" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1634401556339">
+    <state x="1913" y="-7" width="1507" height="811" maximized="true" key="dock-window-2" timestamp="1634464730977">
+      <screen x="1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="1913" y="-7" width="1507" height="811" maximized="true" key="dock-window-2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634464730977" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1634466866682">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634401556339" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634466866682" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634394831364" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1634384735191" />
   </component>

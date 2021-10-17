@@ -44,7 +44,7 @@
                 <DataGridTemplateColumn Width="1*" Header="Картинка"> 
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Pictures.Image}"></Image>
+                            <Image Source="{Binding Pictures.Image}" Height="100"></Image>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -52,7 +52,6 @@
             <DataGrid.Resources>
                 <ContextMenu  x:Key="DataRowContextMenu">
                     <MenuItem   Command="{Binding Path=DataContext.CreateQRCodeCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Path=SelectedItem,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Header="Сформировать QR код" />
-
                 </ContextMenu>
             </DataGrid.Resources>
             <DataGrid.RowStyle>
@@ -65,8 +64,7 @@
                       HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <Border Grid.Column="2">
         <StackPanel Grid.Column="2" Margin="20" DataContext="{Binding AddGood}">
-            <TextBox  Margin="0,10,0,0"  wpf:HintAssist.Hint="Наименование товара" Text="{Binding Name}" wpf:HintAssist.HintOpacity="1"  wpf:HintAssist.IsFloating="True" ></TextBox>
-
+                <TextBox  Margin="0,10,0,0"  wpf:HintAssist.Hint="Наименование товара" Text="{Binding Name}" wpf:HintAssist.HintOpacity="1"  wpf:HintAssist.IsFloating="True" ></TextBox>
                 <TextBox  Margin="0,10,0,0"  wpf:HintAssist.Hint="Цена" wpf:HintAssist.HintOpacity="1"  wpf:HintAssist.IsFloating="True"  Text="{Binding Price}" ></TextBox>
             <ComboBox Margin="0,10,0,0" wpf:HintAssist.HintOpacity="1" wpf:HintAssist.Hint="Магазин" wpf:HintAssist.IsFloating="True" ItemsSource="{Binding Path=DataContext.StoredList,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" SelectedValue="{Binding StoreId}" SelectedValuePath="Id" DisplayMemberPath="StoreName"></ComboBox>
             <ComboBox Margin="0,10,0,0" wpf:HintAssist.HintOpacity="1" wpf:HintAssist.Hint="Тип товара" wpf:HintAssist.IsFloating="True"  ItemsSource="{Binding Path=DataContext.GoodTypeList,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" SelectedValue="{Binding GoodTypeId}" SelectedValuePath="Id" DisplayMemberPath="TypeName"></ComboBox>

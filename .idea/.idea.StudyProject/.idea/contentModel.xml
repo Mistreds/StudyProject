@@ -33,14 +33,14 @@
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Connected" t="Include">
+          <e p="ConnectDB.cs" t="Include" />
           <e p="Firebase.cs" t="Include" />
         </e>
         <e p="MainWindow.xaml" t="Include" />
         <e p="MainWindow.xaml.cs" t="Include" />
         <e p="Migrations" t="Include" />
         <e p="Model" t="Include">
-          <e p="ConnectDB.cs" t="Include" />
-          <e p="Model.cs" t="Include" />
+          <e p="Goods.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -49,6 +49,9 @@
             <e p="MainWindow.g.cs" t="Include" />
             <e p="StudyProject_Content.g.cs" t="Include" />
             <e p="View" t="Include">
+              <e p="Basket" t="Include">
+                <e p="MainBasketPage.g.cs" t="Include" />
+              </e>
               <e p="EditBase" t="Include">
                 <e p="CreateQR.g.cs" t="Include" />
                 <e p="EditGoods.g.cs" t="Include" />
@@ -72,6 +75,10 @@
         <e p="StudyProject.csproj" t="IncludeRecursive" />
         <e p="test-66d74-firebase-adminsdk-jz0nu-f863f22421.json" t="Include" />
         <e p="View" t="Include">
+          <e p="Basket" t="Include">
+            <e p="MainBasketPage.xaml" t="Include" />
+            <e p="MainBasketPage.xaml.cs" t="Include" />
+          </e>
           <e p="EditBase" t="Include">
             <e p="CreateQR.xaml" t="Include" />
             <e p="CreateQR.xaml.cs" t="Include" />
@@ -85,6 +92,7 @@
         </e>
         <e p="ViewModel" t="Include">
           <e p="BaseViewModel.cs" t="Include" />
+          <e p="BasketViewModel.cs" t="Include" />
           <e p="EditBaseViewModel.cs" t="Include" />
           <e p="MainViewModel.cs" t="Include" />
         </e>

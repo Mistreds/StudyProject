@@ -51,6 +51,7 @@ namespace StudyProject.View.EditBase
             {
                 qrcode.Save(save.FileName);
             }
+            this.Close();
         }
     }
 }

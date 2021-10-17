@@ -72,7 +72,6 @@ namespace StudyProject.ViewModel
         #region GoodsData
 
         private Model.Good _add_good;
-
         public Good AddGood
         {
             get => _add_good;
@@ -124,6 +123,7 @@ namespace StudyProject.ViewModel
                 db.SaveChanges();
                 db.RemoveRange(db.Stores.AsQueryable().Where(p=>!StoredList.Select(s=>s.Id).Contains(p.Id)));
                 db.SaveChanges();
+                StoredList = new ObservableCollection<Model.Store>(db.Stores);
             }
             
         });
@@ -135,6 +135,7 @@ namespace StudyProject.ViewModel
                 db.SaveChanges();
                 db.RemoveRange(db.GoodTypes.AsQueryable().Where(p=>!GoodTypeList.Select(s=>s.Id).Contains(p.Id)));
                 db.SaveChanges();
+                GoodTypeList = new ObservableCollection<GoodType>(db.GoodTypes);
             }
             
         });
@@ -173,7 +174,7 @@ namespace StudyProject.ViewModel
             }
 
         });
-        private async Task DownloadGoods()
+        private async Task DownloadGoods()//асинхронный метод загрузки списка товаров и скачивания картинок из firebase
         {
             await Task.Run(() => {
                 using (var db = new ConnectDB())
@@ -182,7 +183,7 @@ namespace StudyProject.ViewModel
                     foreach (var good in db.Goods.Include(p=>p.Store).Include(p=>p.GoodType))
                     {
                         var good_new = new Good(good);
-                        App.Current.Dispatcher.Invoke((Action)delegate
+                        App.Current.Dispatcher.Invoke((Action)delegate //возвращает код в основной поток, чтобы можно было отрисовать в datagrids
                         {
                             GoodsList.Add(good_new);
                         });
@@ -191,7 +192,7 @@ namespace StudyProject.ViewModel
             });
             foreach(var good in GoodsList)
             {
-                good.Pictures.UpdatePhoto();
+                good.Pictures.UpdatePhoto();//Вставляет скаченую  картинку 
             }
         }
 

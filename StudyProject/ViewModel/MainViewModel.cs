@@ -5,40 +5,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using StudyProject.View.Basket;
 using StudyProject.ViewModel;
 namespace StudyProject
 {
-   public class MainViewModel:BaseViewModel
-   {
-       public static EditBaseViewModel EditBaseViewModel;
-       private UserControl _main_control;
+    public class MainViewModel : BaseViewModel//главный viewmodel
+    {
+        //Тут я разделяю для удобства логику работы c ViewModel
+        public static EditBaseViewModel EditBaseViewModel;//ViewModel для работы с модулем "редактирование базы"
+        public static BasketViewModel BasketViewModel;//ViewModel для работы с модулем "корзина"
+        private UserControl _main_control;
 
-       public UserControl MainControl
-       {
-           get => _main_control;
-           set
-           {
-               _main_control = value;
-               OnPropertyChanged();
-           }
-       }
+        public UserControl MainControl
+        {
+            get => _main_control;
+            set
+            {
+                _main_control = value;
+                OnPropertyChanged();
+            }
+        }
 
-       private List<UserControl> Controls;
-       public MainViewModel()
+        private List<UserControl> Controls;
+        public MainViewModel()
         {
             var firebase = new Firebase();
-            EditBaseViewModel =new EditBaseViewModel();
-           Controls=new List<UserControl>{new View.EditBase.MainEditPage()};
-           
-       }
+            EditBaseViewModel = new EditBaseViewModel();
+            BasketViewModel = new BasketViewModel();
+            Controls = new List<UserControl> { new View.EditBase.MainEditPage(),new MainBasketPage() };
 
-       public ICommand OpenEditBase
-       {
-           get=>new RelayCommand(() =>
-           {
-               MainControl = Controls[0];
+        }
+        public ICommand OpenEditBase
+        {
+            get => new RelayCommand(() =>
+            {
+                MainControl = Controls[0];
 
-           });
-       }
-   }
+            });
+        }
+        public ICommand OpenBasket
+        {
+            get => new RelayCommand(() =>
+            {
+                MainControl = Controls[1];
+
+            });
+        }
+    }
 }
