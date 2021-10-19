@@ -14,6 +14,7 @@ namespace StudyProject
         //Тут я разделяю для удобства логику работы c ViewModel
         public static EditBaseViewModel EditBaseViewModel;//ViewModel для работы с модулем "редактирование базы"
         public static BasketViewModel BasketViewModel;//ViewModel для работы с модулем "корзина"
+        public static StatisticsViewModel StatisticsViewModel;//ViewModel для работы с модулем "статистика"
         private UserControl _main_control;
 
         public UserControl MainControl
@@ -32,7 +33,8 @@ namespace StudyProject
             var firebase = new Firebase();
             EditBaseViewModel = new EditBaseViewModel();
             BasketViewModel = new BasketViewModel();
-            Controls = new List<UserControl> { new View.EditBase.MainEditPage(),new MainBasketPage() };
+            StatisticsViewModel=new StatisticsViewModel();
+            Controls = new List<UserControl> { new View.EditBase.MainEditPage(), new MainBasketPage(), new View.Statistics.StatisticsMain() };
 
         }
         public ICommand OpenEditBase
@@ -48,6 +50,14 @@ namespace StudyProject
             get => new RelayCommand(() =>
             {
                 MainControl = Controls[1];
+
+            });
+        }
+        public ICommand OpenStatistic
+        {
+            get => new RelayCommand(() =>
+            {
+                MainControl = Controls[2];
 
             });
         }

@@ -31,28 +31,13 @@ namespace StudyProject.Model
         {
             this.Id = good_ser.id;
             this._count = good_ser.count;
-            using (var db=new ConnectDB())
-            {
-                var good = db.Goods.AsQueryable().Include(p=>p.Store).Include(p=>p.GoodType).FirstOrDefault(p => p.Id == Id);
-                this.Name = good.Name;
-                this.Description = good.Description;
-                this.Store = good.Store;
-                this.GoodType = good.GoodType;
-                this.StoreId = good.StoreId;
-                this.Price = good.Price * _count;
-                this.GoodTypeId = good.GoodTypeId;
-                var fire=new Firebase();
-                this.Pictures =  fire.DownloadPictires(this.Id);
-                this.Pictures.UpdatePhoto();
-
-            }
+            UpdateGood();
         }
         public Good()
         {
         }
-        public Good(int id)
+        private protected virtual void UpdateGood()
         {
-            this.Id = id;
             using (var db = new ConnectDB())
             {
                 var good = db.Goods.AsQueryable().Include(p => p.Store).Include(p => p.GoodType).FirstOrDefault(p => p.Id == Id);
@@ -61,13 +46,27 @@ namespace StudyProject.Model
                 this.Store = good.Store;
                 this.GoodType = good.GoodType;
                 this.StoreId = good.StoreId;
-                this.Price = good.Price;
+                if(_count== 0)
+                {
+                    this.Price = good.Price;
+                }
+                else
+                {
+                    this.Price = good.Price*_count;
+                }
+                
                 this.GoodTypeId = good.GoodTypeId;
                 var fire = new Firebase();
                 this.Pictures = fire.DownloadPictires(this.Id);
                 this.Pictures.UpdatePhoto();
 
             }
+        }
+        public Good(int id)
+        {
+            this.Id = id;
+            UpdateGood();
+          
         }
         public Good(Good p)
         {
@@ -234,7 +233,7 @@ namespace StudyProject.Model
             }
         }
 
-        private int _count;
+        private protected int _count;
 
         public int Count
         {

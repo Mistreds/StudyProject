@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="StudyProject.View.Statistics.MonthStatistic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudyProject.View.Statistics"
+             mc:Ignorable="d" 
+             xmlns:locals="clr-namespace:StudyProject.ViewModel"
+             xmlns:conv="clr-namespace:StudyProject.Settinng"
+             d:DataContext="{d:DesignInstance Type=locals:StatisticsViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        <Style x:Key="OldGroupBox" TargetType="GroupBox"></Style>
+    </UserControl.Resources>
+    <Grid>
+        <GroupBox Grid.Row="2"  Grid.Column="2" Header="Статистика за период по месяцам">
+            <ListBox  Foreground="Black"  ItemsSource="{Binding ReportMonth,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                            <StackPanel Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Run Text="{Binding Year, Mode=OneWay}"></Run>
+                                    <Run Text=" "></Run>
+                                    <Run Text="{Binding Month,Mode=OneWay}"></Run>
+                                </TextBlock>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="8*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <GroupBox  Header="Сводная информация" Style="{StaticResource OldGroupBox}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="15"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition Height="10"></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Row="1" >
+                        <Run Text="Всего товаров куплено: "></Run>
+                        <Run Text="{Binding MainReport.Count,Mode=OneWay}"></Run>
+                                            </TextBlock>
+                                            <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="1">
+                        <Run Text="Всего потрачено: "></Run>
+                        <Run Text="{Binding MainReport.Price,Mode=OneWay}"></Run>
+                                            </TextBlock>
+                                            <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="2">
+                        <Run Text="Всего заказов: "></Run>
+                        <Run Text="{Binding MainReport.CountOrder,Mode=OneWay}"></Run>
+                                            </TextBlock>
+                                            <TextBlock Grid.Row="3">
+                        <Run Text="Самый популярный товар"></Run>
+                        <Run Text="{Binding MainReport.MostFrequentGood.Name,Mode=OneWay}"></Run>
+                                            </TextBlock>
+                                            <TextBlock Grid.Row="3" Margin="10,0,0,0"  Grid.Column="1">
+                        <Run Text="Был куплен "></Run>
+                       <Run Text="{Binding MainReport.MostFrequentGood.Count,Mode=OneWay}"></Run>
+                        <Run Text=" раз"></Run>
+                        <Run Text="{Binding MainReport.MostFrequentGood.Frequency,Mode=OneWay}"></Run>
+                        <Run Text="% от общего кол-ва"></Run>
+                                            </TextBlock>
+                                            <TextBlock Margin="10,0,0,0" Grid.Row="3" Grid.Column="2">
+                        <Run Text="Было потрачено "></Run>
+                        <Run Text="{Binding MainReport.MostFrequentGood.Price,Mode=OneWay}"></Run>
+                                            </TextBlock>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Style="{StaticResource OldGroupBox}" Grid.Row="1" Header="Остальные товары"  >
+                                        <ListBox  Foreground="Black"  ItemsSource="{Binding MainReport.GoodsList}" >
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock >
+                        <Run Text="Товар"></Run>
+                        <Run Text="{Binding Name,Mode=OneWay}"></Run>
+                                                        </TextBlock>
+                                                        <TextBlock Grid.Row="1" Margin="10,0,0,0" Grid.Column="1">
+                        <Run Text="Был куплен "></Run>
+                       <Run Text="{Binding Count, Mode=OneWay}"></Run>
+                        <Run Text=" раз"></Run>
+                        <Run Text="{Binding Frequency,Mode=OneWay}"></Run>
+                        <Run Text="% от общего кол-ва"></Run>
+                                                        </TextBlock>
+                                                        <TextBlock Grid.Row="1" Margin="10,0,0,0"   Grid.Column="2">
+                        <Run Text="Было потрачено "></Run>
+                        <Run Text="{Binding Price,Mode=OneWay}"></Run>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </GroupBox>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding MainReport.CountOrder,Mode=OneWay}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -4,9 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudyProject.View.Statistics"
+             xmlns:locals="clr-namespace:StudyProject.ViewModel"
+             xmlns:conv="clr-namespace:StudyProject.Settinng"
+             d:DataContext="{d:DesignInstance Type=locals:StatisticsViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+             d:DesignHeight="650" d:DesignWidth="1200" Background="White">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        <Style x:Key="OldGroupBox" TargetType="GroupBox"></Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal"  >
+            <DatePicker  Margin="10" Width="120" SelectedDate="{Binding Date1}"></DatePicker>
+            <DatePicker Margin="10" Width="120" SelectedDate="{Binding Date2}"></DatePicker>
+            <Button   Margin="10" Content="Сформировать" Command="{Binding CreateReport}"></Button>
+            <Button   Margin="10" Content="Сохранить в PDF" Command="{Binding SaveAsPdf}"></Button>
+        </StackPanel>
+        <RadioButton GroupName="Сontent" IsChecked="{Binding IsOpenReport}" Grid.Row="1" Content="Общий отчет за период"></RadioButton>
+        <RadioButton GroupName="Сontent" IsChecked="{Binding IsOpenMonth}" Grid.Row="1" Grid.Column="1" Content="Отчет за период по месяцам"></RadioButton>
+        <RadioButton GroupName="Сontent" IsChecked="{Binding IsOpenChart}" Grid.Row="1" Grid.Column="2" Content="График"></RadioButton>
+        <RadioButton GroupName="Сontent"  Grid.Row="1" Grid.Column="3" IsChecked="{Binding IsOpenHist}" Content="Гистограмма"></RadioButton>
+        <ContentControl Grid.Row="2" Grid.ColumnSpan="4" Content="{Binding MainControl}"></ContentControl>
     </Grid>
 </UserControl>

@@ -34,7 +34,7 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"  Background="#2971c3">
             <Button  Style="{StaticResource NavButton}" Command="{Binding OpenBasket}" Height="48" Content="Корзина"></Button>
-            <Button Style="{StaticResource NavButton}" Height="48" Content="Статистика"></Button>
+            <Button Style="{StaticResource NavButton}" Height="48"  Command="{Binding OpenStatistic}" Content="Статистика"></Button>
             <Button Style="{StaticResource NavButton}" Height="48"  Command="{Binding OpenEditBase }" Content="Редактирование базы"></Button>
             
         </StackPanel>

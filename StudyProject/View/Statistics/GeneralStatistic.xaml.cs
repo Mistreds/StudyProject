@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace StudyProject.View.Statistics
 {
     /// <summary>
-    /// Логика взаимодействия для StatisticsMain.xaml
+    /// Логика взаимодействия для GeneralStatistic.xaml
     /// </summary>
-    public partial class StatisticsMain : UserControl
+    public partial class GeneralStatistic : UserControl
     {
-        public StatisticsMain()
+        public GeneralStatistic()
         {
             InitializeComponent();
-            DataContext = MainViewModel.StatisticsViewModel;
         }
     }
 }

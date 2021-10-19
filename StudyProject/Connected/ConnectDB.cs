@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StudyProject
 {
+ 
+    //EntityFramework соединение с базой данных
     public class ConnectDB : DbContext
     {
         
@@ -40,15 +42,15 @@ namespace StudyProject
             #endregion
             #region Goods
             modelBuilder.Entity<Model.Good>(b => b.ToTable("good"));
-            modelBuilder.Entity<Model.Good>().Ignore(p => p.Pictures);
-            modelBuilder.Entity<Model.Good>().Ignore(p => p.Count);
+            modelBuilder.Entity<Model.Good>().Ignore(p => p.Pictures);//игнорирование поле Pictures, чтобы DbContext не создал его в SQlite, так как Pictires работает с Firebase
+            modelBuilder.Entity<Model.Good>().Ignore(p => p.Count);//Игнорирование поля Count
            
             #endregion
             #region Basket
 
             modelBuilder.Entity<Model.Order>(p => p.ToTable("order"));
             modelBuilder.Entity<Model.Basket>(p => p.ToTable("basket"));
-            modelBuilder.Entity<Model.Basket>().Ignore(p => p.QRstring);
+            modelBuilder.Entity<Model.Basket>().Ignore(p => p.QRstring);//игнорирование поле QRstring, чтобы DbContext не создал его в SQlite, так как QRstring работает с Firebase
             #endregion
 
 
