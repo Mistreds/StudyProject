@@ -30,7 +30,7 @@ namespace StudyProject.View.Statistics
         public StatisticChartPage()
         {
             InitializeComponent();
-           
+
         }
         public void CreateChart1(ObservableCollection<ViewModel.ReportMonth> reports)
         {
@@ -39,14 +39,7 @@ namespace StudyProject.View.Statistics
             chart.Titles.Clear();
             chart.Legends.Clear();
             chart.ChartAreas.Add(new ChartArea("Default"));
-
-            // Добавим линию, и назначим ее в ранее созданную область "Default"
-
-            
-            
             var year = reports.GroupBy(p => p.Year).Select(p => p.Key).ToList();
-           
-            
             foreach (var a in year)
             {
                 System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series(a.ToString());
@@ -61,39 +54,31 @@ namespace StudyProject.View.Statistics
                 series.IsVisibleInLegend = true;
                 List<string> axisXData = new List<string>();
                 List<double> axisYData = new List<double>();
-                foreach (var r in MainViewModel.StatisticsViewModel.Month.Where(p=>!string.IsNullOrEmpty(p)))
+                foreach (var r in MainViewModel.StatisticsViewModel.Month.Where(p => !string.IsNullOrEmpty(p)))
                 {
-                    
                     axisXData.Add(r);
                     var rep = reports.Where(p => p.Month == r && p.Year == a).FirstOrDefault();
-                    if(rep != null)
+                    if (rep != null)
                     {
                         axisYData.Add(rep.MainReport.Price);
-                       
                     }
-
-                    
                     else
                         axisYData.Add(0);
                 }
-               series.Points.DataBindXY(axisXData, axisYData);
+                series.Points.DataBindXY(axisXData, axisYData);
                 chart.Series.Add(series);
             }
-
-
-            // Assign the legend to Series1.
-           
-            // добавим данные линии
-            
-            
-            
-           
-
+            SaveChart();
         }
         public void SaveChart()
         {
+            var chars = chart;
+            chars.Height = 1200;
+            chars.Width = 1800;
             var fs = new FileStream(@"char_img.png", FileMode.Create);
-            chart.SaveImage(fs, ChartImageFormat.Png);
+
+            chars.SaveImage(fs, ChartImageFormat.Png);
+            fs.Close();
         }
     }
 }

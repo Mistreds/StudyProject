@@ -14,6 +14,7 @@ using MigraDoc.Rendering;
 using PdfSharp.Pdf;
 using System.Windows.Input;
 
+
 namespace StudyProject.ViewModel
 {
     public class ReportMonth //класс для вывода отчета по месяцам
@@ -332,6 +333,11 @@ namespace StudyProject.ViewModel
         public ICommand SaveAsPdf //сохранение отчета в виде пдф
             => new RelayCommand(() => 
         {
+            if(MainReports == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Отчет не может быть сформирован, так как нет данных", "Ошибка");
+                return;
+            }
 
             Document document = new Document();
             Section section = document.AddSection();
@@ -339,7 +345,7 @@ namespace StudyProject.ViewModel
             head_par.Format.Alignment = ParagraphAlignment.Center;
             head_par.Format.Font.Size = 16;
             head_par.Format.Font.Bold = true;
-            var text_head=new Text("Отчет по покупкам");
+            var text_head = new Text($"Отчет по покупкам c {Date1.ToString("dd-MM-yyyy")} по {Date2.ToString("dd-MM-yyyy")} "); ;;
             head_par.Add(text_head);
             section.PageSetup.BottomMargin = 10;//нижний отступ
             section.PageSetup.TopMargin = "2cm";//верхний отступ
@@ -470,8 +476,7 @@ namespace StudyProject.ViewModel
                 var pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
                 var hist = _controls[3] as View.Statistics.HistogramStatistics;
                 var char_stat = _controls[2] as View.Statistics.StatisticChartPage;
-                char_stat.SaveChart();//cохранение графика в виде картинки
-                hist.SaveChart();//сохранение гистограммы в виде картинки
+               
                 var image_sect = new Section();//Создание новой секции с изображением графиков
                 image_sect.PageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Landscape;
                 var image1 = image_sect.AddImage("char_img.png");
@@ -488,7 +493,20 @@ namespace StudyProject.ViewModel
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
                 pdfRenderer.RenderDocument();
-                pdfRenderer.PdfDocument.Save("D:\\1.pdf");// сохраняем
+                System.Windows.Forms.SaveFileDialog save = new System.Windows.Forms.SaveFileDialog(); // save будет запрашивать у пользователя, место, в которое он захочет сохранить файл. 
+                save.Filter = "PDF|*.pdf"; //создаём фильтр, который определяет, в каких форматах мы сможем сохранить нашу информацию. В данном случае выбираем форматы изображений. Записывается так: "название_формата_в обозревателе|*.расширение_формата")
+                if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK) //если пользователь нажимает в обозревателе кнопку "Сохранить".
+                {
+                    try
+                    {
+                        pdfRenderer.PdfDocument.Save(save.FileName);
+                    }
+                    catch(Exception e)
+                    {
+                        System.Windows.Forms.MessageBox.Show(e.Message, "Ошибка");
+                    }
+                }
+                ;// сохраняем
             }
            else
             {
