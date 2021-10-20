@@ -322,11 +322,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connected\ConnectDB.cs" />
-    <Compile Include="Connected\Firebase.cs" />
-    <Compile Include="Model\Basket.cs" />
+    <Compile Include="Model\Model.cs" />
     <Compile Include="Settinng\Converter.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Commands.cs" />
     <Compile Include="ViewModel\BasketViewModel.cs" />
     <Compile Include="ViewModel\EditBaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -420,7 +418,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Goods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -443,17 +440,22 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="test-66d74-firebase-adminsdk-jz0nu-f863f22421.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BAL\BAL.csproj">
+    <ProjectReference Include="..\BAL\BL.csproj">
       <Project>{89ad7e1c-4481-41f9-bc93-8c16b3beba28}</Project>
-      <Name>BAL</Name>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{90ddfd42-b0d4-4e3b-9a19-ef46a7907843}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{3c43473f-6330-41b3-93c5-d09eb983a5da}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

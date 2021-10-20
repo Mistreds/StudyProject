@@ -11,6 +11,8 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Prism.Commands;
+using DAL;
+using BE;
 
 namespace StudyProject.ViewModel
 {
@@ -48,8 +50,8 @@ namespace StudyProject.ViewModel
         private List<UserControl> _controls;
         #endregion
         #region IntiModelData
-        private ObservableCollection<Model.Store> _stores_list;
-        public ObservableCollection<Model.Store> StoredList
+        private ObservableCollection<Store> _stores_list;
+        public ObservableCollection<Store> StoredList
         {
             get=> _stores_list;
             set
@@ -58,8 +60,8 @@ namespace StudyProject.ViewModel
                 OnPropertyChanged();
             }
         }
-        private ObservableCollection<Model.GoodType> _good_type_list;
-        public ObservableCollection<Model.GoodType> GoodTypeList
+        private ObservableCollection<GoodType> _good_type_list;
+        public ObservableCollection<GoodType> GoodTypeList
         {
             get => _good_type_list;
             set
@@ -72,7 +74,7 @@ namespace StudyProject.ViewModel
         #region GoodsData
 
         private Model.Good _add_good;
-        public Good AddGood
+        public Model.Good AddGood
         {
             get => _add_good;
             set
@@ -104,17 +106,14 @@ namespace StudyProject.ViewModel
         {
             using (var db = new ConnectDB())
             {
-                StoredList=new ObservableCollection<Store>(db.Stores.ToList());
+                StoredList=new ObservableCollection<BE.Store>(db.Stores.ToList());
                 GoodTypeList = new ObservableCollection<GoodType>(db.GoodTypes.ToList());
-                AddGood=new Good();
+                AddGood=new Model.Good();
                 _ = DownloadGoods();
             }
         }
-
         #region Command
-
         #region  GoodTypeStore
-
         public  ICommand UpdateStore=> new RelayCommand(() =>
         {
             using (var db=new ConnectDB())
@@ -123,7 +122,7 @@ namespace StudyProject.ViewModel
                 db.SaveChanges();
                 db.RemoveRange(db.Stores.AsQueryable().Where(p=>!StoredList.Select(s=>s.Id).Contains(p.Id)));
                 db.SaveChanges();
-                StoredList = new ObservableCollection<Model.Store>(db.Stores);
+                StoredList = new ObservableCollection<Store>(db.Stores);
             }
             
         });
@@ -167,7 +166,7 @@ namespace StudyProject.ViewModel
             if (myDialog.ShowDialog() == true)
             {
                 
-               Model.Pictures pic=new Pictures(myDialog.FileName);
+               Pictures pic=new Pictures(myDialog.FileName);
                //Firebase.UploadPictires(pic);
                AddGood.Pictures = pic;
 
@@ -179,10 +178,10 @@ namespace StudyProject.ViewModel
             await Task.Run(() => {
                 using (var db = new ConnectDB())
                 {
-                    GoodsList = new ObservableCollection<Good>();
-                    foreach (var good in db.Goods.Include(p=>p.Store).Include(p=>p.GoodType))
+                    GoodsList = new ObservableCollection<Model.Good>();
+                    foreach (var good in db.Goods.Include(p=>p.Store).Include(p=>p.GoodType).Select(p=>p))
                     {
-                        var good_new = new Good(good);
+                        var good_new = new Model.Good(good);
                         App.Current.Dispatcher.Invoke((Action)delegate //возвращает код в основной поток, чтобы можно было отрисовать в datagrids
                         {
                             GoodsList.Add(good_new);
@@ -198,10 +197,10 @@ namespace StudyProject.ViewModel
 
         public ICommand CreateQRCodeCommand
         {
-            get => new DelegateCommand<Good>(CreateQRCode);
+            get => new DelegateCommand<Model.Good>(CreateQRCode);
         }
 
-        private void CreateQRCode(Good good)
+        private void CreateQRCode(Model.Good good)
         {
             var qr_window=new View.EditBase.CreateQR(good);
             qr_window.Show();
@@ -214,8 +213,8 @@ namespace StudyProject.ViewModel
                 db.SaveChanges();
                 AddGood.UpdatePicId();
                 Firebase.UploadPictires(AddGood.Pictures);
-                GoodsList.Add(new Good(AddGood,true));
-                AddGood=new Good();
+                GoodsList.Add(new Model.Good(AddGood,true));
+                AddGood= new Model.Good();
             }
         });
         #endregion

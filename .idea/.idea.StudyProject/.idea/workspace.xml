@@ -8,10 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24f388a8-b744-48d7-9937-7ed123ef7cd9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/View/Statistics/HistogramStatistics.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/View/Statistics/HistogramStatistics.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/View/Statistics/StatisticChartPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/View/Statistics/StatisticChartPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAL/BAL.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Connected/ConnectDB.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Connected/Firebase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Model/Basket.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/Model/Goods.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/StudyProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/StudyProject.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/BaseViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/StatisticsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/StatisticsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyProject/test-66d74-firebase-adminsdk-jz0nu-f863f22421.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +50,6 @@
         <option value="$PROJECT_DIR$/StudyProject/Model/Model.cs" />
         <option value="$PROJECT_DIR$/StudyProject/View/EditBase/EditGoods.xaml" />
         <option value="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" />
-        <option value="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" />
         <option value="$PROJECT_DIR$/StudyProject/Settinng/Converter.cs" />
         <option value="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" />
         <option value="$PROJECT_DIR$/StudyProject/MainWindow.xaml" />
@@ -49,6 +60,7 @@
         <option value="$PROJECT_DIR$/StudyProject/View/Statistics/StatisticChartPage.xaml.cs" />
         <option value="$PROJECT_DIR$/StudyProject/View/Statistics/HistogramStatistics.xaml.cs" />
         <option value="$PROJECT_DIR$/StudyProject/ViewModel/StatisticsViewModel.cs" />
+        <option value="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" />
       </list>
     </option>
   </component>
@@ -116,7 +128,8 @@
       <workItem from="1634584772536" duration="957000" />
       <workItem from="1634588177614" duration="1476000" />
       <workItem from="1634600167754" duration="1475000" />
-      <workItem from="1634641787866" duration="1988000" />
+      <workItem from="1634641787866" duration="1989000" />
+      <workItem from="1634732170700" duration="636000" />
     </task>
     <servers />
   </component>
@@ -129,30 +142,30 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="199" key="GridCell.Tab.0.bottom" timestamp="1634645154663">
+    <state width="1493" height="199" key="GridCell.Tab.0.bottom" timestamp="1634733079149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="199" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634600245406" />
     <state width="1493" height="288" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906716" />
-    <state width="1493" height="199" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1634645154663" />
-    <state width="1493" height="199" key="GridCell.Tab.0.center" timestamp="1634645154663">
+    <state width="1493" height="199" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1634733079149" />
+    <state width="1493" height="199" key="GridCell.Tab.0.center" timestamp="1634733079149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="199" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634600245406" />
     <state width="1493" height="288" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906715" />
-    <state width="1493" height="199" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1634645154663" />
-    <state width="1493" height="199" key="GridCell.Tab.0.left" timestamp="1634645154662">
+    <state width="1493" height="199" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1634733079149" />
+    <state width="1493" height="199" key="GridCell.Tab.0.left" timestamp="1634733079149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="199" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634600245406" />
     <state width="1493" height="288" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906715" />
-    <state width="1493" height="199" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1634645154662" />
-    <state width="1493" height="199" key="GridCell.Tab.0.right" timestamp="1634645154663">
+    <state width="1493" height="199" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1634733079149" />
+    <state width="1493" height="199" key="GridCell.Tab.0.right" timestamp="1634733079149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="199" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1634600245406" />
     <state width="1493" height="288" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1634396906715" />
-    <state width="1493" height="199" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1634645154663" />
+    <state width="1493" height="199" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1634733079149" />
     <state width="1493" height="288" key="GridCell.Tab.1.bottom" timestamp="1634399634323">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

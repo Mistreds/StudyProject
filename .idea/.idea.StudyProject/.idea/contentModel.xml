@@ -7,8 +7,8 @@
       <e p="BAL" t="IncludeRecursive">
         <e p="Apriori.cs" t="Include" />
         <e p="AssociationRule.cs" t="Include" />
-        <e p="BAL.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BL.csproj" t="IncludeRecursive" />
         <e p="Helper.cs" t="Include" />
         <e p="ItemSet.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
@@ -19,6 +19,29 @@
           <e p="Settings.Designer.cs" t="Include" />
           <e p="Settings.settings" t="Include" />
         </e>
+      </e>
+      <e p="BE" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="BE.cs" t="Include" />
+        <e p="BE.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="DAL" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DAL.cs" t="Include" />
+        <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="test-66d74-firebase-adminsdk-jz0nu-2b886118f1.json" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive">
         <e p="Grpc.Core.2.36.4\runtimes\linux-x64\native\libgrpc_csharp_ext.x64.so" t="Include" />
@@ -48,15 +71,10 @@
         <e p="App.xaml" t="Include" />
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Connected" t="Include">
-          <e p="ConnectDB.cs" t="Include" />
-          <e p="Firebase.cs" t="Include" />
-        </e>
         <e p="MainWindow.xaml" t="Include" />
         <e p="MainWindow.xaml.cs" t="Include" />
         <e p="Model" t="Include">
-          <e p="Basket.cs" t="Include" />
-          <e p="Goods.cs" t="Include" />
+          <e p="Model.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -97,7 +115,6 @@
           <e p="Converter.cs" t="Include" />
         </e>
         <e p="StudyProject.csproj" t="IncludeRecursive" />
-        <e p="test-66d74-firebase-adminsdk-jz0nu-f863f22421.json" t="Include" />
         <e p="View" t="Include">
           <e p="Basket" t="Include">
             <e p="AddOffenGood.xaml" t="Include" />
@@ -129,8 +146,8 @@
           </e>
         </e>
         <e p="ViewModel" t="Include">
-          <e p="BaseViewModel.cs" t="Include" />
           <e p="BasketViewModel.cs" t="Include" />
+          <e p="Commands.cs" t="Include" />
           <e p="EditBaseViewModel.cs" t="Include" />
           <e p="MainViewModel.cs" t="Include" />
           <e p="StatisticsViewModel.cs" t="Include" />

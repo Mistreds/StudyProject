@@ -15,10 +15,11 @@ using System.Text.Json;
 using BAL;
 using Microsoft.EntityFrameworkCore;
 using Prism.Commands;
+using DAL;
 
 namespace StudyProject.ViewModel
 {
-  public class BasketViewModel:BaseViewModel
+  public class BasketViewModel:BE.BaseViewModel
     {
         private ObservableCollection<Model.Good> _good_basket_list;
         public ObservableCollection<Model.Good> GoodBasketList//корзина с покупками
@@ -30,8 +31,8 @@ namespace StudyProject.ViewModel
                 OnPropertyChanged();
             }
         }
-        private Model.Order _order;
-        public Model.Order Order//заказ
+        private BE.Order _order;
+        public BE.Order Order//заказ
         {
             get => _order;
             set
@@ -60,8 +61,8 @@ namespace StudyProject.ViewModel
         {
             GoodBasketList=new ObservableCollection<Model.Good>();
             rules=new List<AssociationRule>();
-            Order=new Model.Order();
-            Order.Basket = new ObservableCollection<Model.Basket>();//связь заказа с товаром
+            Order=new BE.Order();
+            Order.Basket = new ObservableCollection<BE.Basket>();//связь заказа с товаром
             OftenOrder = new ObservableCollection<Model.Good>();
             DoThings();//получение списка прошлых покупок через алгоритма apriori
         }
@@ -93,10 +94,10 @@ namespace StudyProject.ViewModel
         });
         private void AddToBasket(string qr_json, byte[] file)
         {
-            var good_json = JsonSerializer.Deserialize<Model.GoodSerialized>(qr_json);
+            var good_json = JsonSerializer.Deserialize<BE.GoodSerialized>(qr_json);
             var good=new Model.Good(good_json);
             AddToBasket(good,false);
-            Order.Basket.Add(new Model.Basket(good.Id, good.Count, file));//связываем товар и заказ и добавляем qr код
+            Order.Basket.Add(new BE.Basket(good.Id, good.Count, file));//связываем товар и заказ и добавляем qr код
         }
         public void AddToBasket(Model.Good good,bool file)
         {
@@ -104,7 +105,7 @@ namespace StudyProject.ViewModel
             Order.ItogPrice += good.Price;
             GoodBasketList.Add(good);
             if(file)
-                Order.Basket.Add(new Model.Basket(good.Id, good.Count));
+                Order.Basket.Add(new BE.Basket(good.Id, good.Count));
             OftenOrder.Remove(OftenOrder.Where(p => p.Id == good.Id).FirstOrDefault());//если мы добавляем товар, который предложили, удаляем из предложеного
             var rul = rules.Where(p => GoodBasketList.Count >= 2 && p.Confidance >= 50 && String.Join(",", p.Label.Select(l => l).OrderBy(l => l).ToList()) == String.Join(",", GoodBasketList.Select(s => s.Id).OrderBy(s => s).ToList())).ToList();//находим в алгоритме apriori товары, которые покупают вместе с теми которые лежат в корзине
             List<int> new_coincidence = new List<int>();//Список id предложенных товаров
@@ -134,8 +135,8 @@ namespace StudyProject.ViewModel
                     Firebase.UploadQr(bask.Id, bask.QRstring);//загружаем qr код
                 }
                 GoodBasketList = new ObservableCollection<Model.Good>();
-                Order = new Model.Order();
-                Order.Basket = new ObservableCollection<Model.Basket>();
+                Order = new BE.Order();
+                Order.Basket = new ObservableCollection<BE.Basket>();
             }
         
         });
@@ -182,25 +183,7 @@ namespace StudyProject.ViewModel
             }    
             
         }
-        public  static  BitmapImage ToImage(byte[] array)//Делаем из потока байтов картинку
-        {
-            using (var ms = new System.IO.MemoryStream(array))
-            {
-                try
-                {
-                    var image = new BitmapImage();
-                    image.BeginInit();
-                    image.CacheOption = BitmapCacheOption.OnLoad; // here
-                    image.StreamSource = ms;
-                    image.EndInit();
-                    return image;
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
+        
         #endregion
     }
 }

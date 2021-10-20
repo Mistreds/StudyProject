@@ -1,29 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace StudyProject
 {
-    public class BaseViewModel : INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Событие изменения свойств
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// <see cref="CallerMemberNameAttribute"/> автоматически определяет имя вызываемой переменной.
-        /// </summary>
-        /// <param name="propertyName">Имя переменной.</param>
-        ///
-        ///
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
     public class RelayCommand : ICommand
     {
         #region Private Members

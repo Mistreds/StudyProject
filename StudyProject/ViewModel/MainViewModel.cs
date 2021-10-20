@@ -9,7 +9,7 @@ using StudyProject.View.Basket;
 using StudyProject.ViewModel;
 namespace StudyProject
 {
-    public class MainViewModel : BaseViewModel//главный viewmodel
+    public class MainViewModel : BE.BaseViewModel//главный viewmodel
     {
         //Тут я разделяю для удобства логику работы c ViewModel
         public static EditBaseViewModel EditBaseViewModel;//ViewModel для работы с модулем "редактирование базы"
@@ -30,7 +30,7 @@ namespace StudyProject
         private List<UserControl> Controls;
         public MainViewModel()
         {
-            var firebase = new Firebase();
+            var firebase = new DAL.Firebase();
             EditBaseViewModel = new EditBaseViewModel();
             BasketViewModel = new BasketViewModel();
             StatisticsViewModel=new StatisticsViewModel();

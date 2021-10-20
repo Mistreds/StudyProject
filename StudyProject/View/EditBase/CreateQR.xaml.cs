@@ -41,8 +41,8 @@ namespace StudyProject.View.EditBase
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var good_ser = new Model.GoodSerialized(good, Convert.ToInt32(GoodCount.Text));
-            string json = JsonSerializer.Serialize<Model.GoodSerialized>(good_ser);
+            var good_ser = new BE.GoodSerialized(good, Convert.ToInt32(GoodCount.Text));
+            string json = JsonSerializer.Serialize<BE.GoodSerialized>(good_ser);
             QRCodeEncoder encoder = new QRCodeEncoder(); //создаем объект класса QRCodeEncoder
             Bitmap qrcode = encoder.Encode(json);
             SaveFileDialog save = new SaveFileDialog(); // save будет запрашивать у пользователя, место, в которое он захочет сохранить файл. 

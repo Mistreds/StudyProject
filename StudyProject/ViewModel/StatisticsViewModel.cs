@@ -65,7 +65,7 @@ namespace StudyProject.ViewModel
         }
         public MainReport(DateTime date1, DateTime date2)
         {
-            using (var db = new ConnectDB())
+            using (var db = new DAL.ConnectDB())
             {
                 date1 = new DateTime(date1.Year, date1.Month, date1.Day, 0, 0, 0);
                 date2 = new DateTime(date2.Year, date2.Month, date2.Day, 23, 59, 59);
@@ -96,7 +96,7 @@ namespace StudyProject.ViewModel
         public int Frequency { get => _frequency; }
         private protected override void UpdateGood()
         {
-            using (var db = new ConnectDB())
+            using (var db = new DAL.ConnectDB())
             {
                 var good = db.Goods.AsQueryable().Include(p => p.Store).Include(p => p.GoodType).FirstOrDefault(p => p.Id == Id);
                 this.Name = good.Name;
@@ -121,7 +121,7 @@ namespace StudyProject.ViewModel
         }
 
     }
-    public class StatisticsViewModel : BaseViewModel
+    public class StatisticsViewModel : BE.BaseViewModel
     {
         private MainReport _main_report;
         public MainReport MainReports
