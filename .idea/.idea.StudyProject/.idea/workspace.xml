@@ -10,20 +10,14 @@
     <list default="true" id="24f388a8-b744-48d7-9937-7ed123ef7cd9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudyProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BAL/BAL.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Connected/ConnectDB.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Connected/Firebase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Model/Basket.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/Model/Goods.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/StudyProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/StudyProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/View/EditBase/CreateQR.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/BaseViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/BasketViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAL/Apriori.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAL/AssociationRule.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAL/BL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BAL/BL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAL/Helper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BAL/ItemSet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/DAL.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/EditBaseViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/ViewModel/StatisticsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudyProject/ViewModel/StatisticsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyProject/test-66d74-firebase-adminsdk-jz0nu-f863f22421.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +124,7 @@
       <workItem from="1634600167754" duration="1475000" />
       <workItem from="1634641787866" duration="1989000" />
       <workItem from="1634732170700" duration="636000" />
+      <workItem from="1634737641943" duration="608000" />
     </task>
     <servers />
   </component>

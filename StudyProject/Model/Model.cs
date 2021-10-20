@@ -23,7 +23,7 @@ namespace StudyProject.Model
         {
             using (var db = new ConnectDB())
             {
-                var good = db.Goods.AsQueryable().Include(p => p.Store).Include(p => p.GoodType).FirstOrDefault(p => p.Id == Id);
+                var good = MainViewModel.DALimp.GetGoodById(Id);
                 this.Name = good.Name;
                 this.Description = good.Description;
                 this.Store = good.Store;
@@ -61,7 +61,7 @@ namespace StudyProject.Model
                 this.StoreId = p.StoreId;
                 if (p.Store == null)
                 {
-                    this.Store = db.Stores.AsQueryable().FirstOrDefault(s => s.Id == StoreId);
+                    this.Store = MainViewModel.DALimp.GetStoreById(StoreId);
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace StudyProject.Model
                 }
                 else
                 {
-                    this.GoodType = db.GoodTypes.AsQueryable().FirstOrDefault(s => s.Id == GoodTypeId);
+                    this.GoodType = MainViewModel.DALimp.GetTypeById(GoodTypeId);
                 }
                 this.Name = p.Name;
                 var fire = new Firebase();
@@ -93,7 +93,7 @@ namespace StudyProject.Model
                 this.StoreId = p.StoreId;
                 if (p.Store == null)
                 {
-                    this.Store = db.Stores.AsQueryable().FirstOrDefault(s => s.Id == StoreId);
+                    this.Store = MainViewModel.DALimp.GetStoreById(StoreId);
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace StudyProject.Model
                 this.GoodTypeId = p.GoodTypeId;
 
 
-                this.GoodType = db.GoodTypes.AsQueryable().FirstOrDefault(s => s.Id == p.GoodTypeId);
+                this.GoodType = MainViewModel.DALimp.GetTypeById(GoodTypeId);
 
 
                 this.Name = p.Name;

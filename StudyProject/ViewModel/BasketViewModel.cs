@@ -55,16 +55,14 @@ namespace StudyProject.ViewModel
         public BasketViewModel()
         {
             InitData();
-        }
-        
+        }     
         private void InitData()//инициализация данных
         {
             GoodBasketList=new ObservableCollection<Model.Good>();
-            rules=new List<AssociationRule>();
+            rules = MainViewModel.BALimp.GetAssociationRules(MainViewModel.DALimp.GetAllGoodsFromBasket());
             Order=new BE.Order();
             Order.Basket = new ObservableCollection<BE.Basket>();//связь заказа с товаром
             OftenOrder = new ObservableCollection<Model.Good>();
-            DoThings();//получение списка прошлых покупок через алгоритма apriori
         }
         public ICommand ClearBasket => new DelegateCommand(InitData);
         #region  Command
@@ -107,7 +105,7 @@ namespace StudyProject.ViewModel
             if(file)
                 Order.Basket.Add(new BE.Basket(good.Id, good.Count));
             OftenOrder.Remove(OftenOrder.Where(p => p.Id == good.Id).FirstOrDefault());//если мы добавляем товар, который предложили, удаляем из предложеного
-            var rul = rules.Where(p => GoodBasketList.Count >= 2 && p.Confidance >= 50 && String.Join(",", p.Label.Select(l => l).OrderBy(l => l).ToList()) == String.Join(",", GoodBasketList.Select(s => s.Id).OrderBy(s => s).ToList())).ToList();//находим в алгоритме apriori товары, которые покупают вместе с теми которые лежат в корзине
+            var rul = MainViewModel.BALimp.GetFindAssotiat(GoodBasketList.Select(p => (BE.Good)p).ToList(), rules);
             List<int> new_coincidence = new List<int>();//Список id предложенных товаров
             foreach (var n_c in rul)
             {
@@ -123,22 +121,11 @@ namespace StudyProject.ViewModel
             }
         }
         public ICommand CreateOrder => new RelayCommand(() => { 
-            using (var db = new ConnectDB())
-            {
-                Order.Date = DateTime.Now;
-                db.Orders.Add(Order);
-                db.SaveChanges();//добавляем заказ в бд
-                foreach(var bask in Order.Basket)
-                {
-                    if (bask.QRstring == null)
-                        continue;
-                    Firebase.UploadQr(bask.Id, bask.QRstring);//загружаем qr код
-                }
+                MainViewModel.DALimp.AddOrder(Order);
                 GoodBasketList = new ObservableCollection<Model.Good>();
                 Order = new BE.Order();
                 Order.Basket = new ObservableCollection<BE.Basket>();
-            }
-        
+            rules = MainViewModel.BALimp.GetAssociationRules(MainViewModel.DALimp.GetAllGoodsFromBasket());
         });
         public ICommand SelectOffenGoodCommand
         {
@@ -148,42 +135,7 @@ namespace StudyProject.ViewModel
         {
             var AddOffenGood = new View.Basket.AddOffenGood(good);
             AddOffenGood.Show();
-        }
-        private void DoThings()
-        {
-            //алгоритм apriori, немного модернизировал его исходный код с гитхаба
-            int Support = 3;
-            var db=new ConnectDB();
-            List<List<string>> goods_lists = db.Orders.AsQueryable().Include(p => p.Basket).Select(p => p.Basket.Select(s => s.GoodId.ToString()).ToList()).ToList();
-            List<string> buck_id = GoodBasketList.Select(p => p.Id.ToString()).ToList();
-            List<int> find_buck_id = new List<int>();
-            BAL.Apriori apriori = new BAL.Apriori(goods_lists,buck_id);
-            int k = 1;
-            List<BAL.ItemSet> ItemSets = new List<BAL.ItemSet>();
-            bool next;
-            do
-            {
-                next = false;
-                
-                var L = apriori.GetItemSet(k, Support, IsFirstItemList: k == 1);
-                Console.WriteLine("L"+L.Count);
-                if (L.Count > 0)
-                {
-                    if (k != 1)
-                        rules.AddRange(apriori.GetRules(L));
-                    next = true;
-                    k++;
-                    ItemSets.Add(L);
-
-                }
-            } while (next);
-            foreach(var a in ItemSets)
-            {
-                Console.WriteLine(a.Keys);
-            }    
-            
-        }
-        
+        }   
         #endregion
     }
 }

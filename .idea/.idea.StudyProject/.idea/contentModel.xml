@@ -5,13 +5,18 @@
     <e p="C:\Users\Ilya\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_StudyProject.1134208421.00" t="ExcludeRecursive" />
     <e p="C:\Users\Ilya\Documents\MyProject\Kwork\StudyProject" t="IncludeFlat">
       <e p="BAL" t="IncludeRecursive">
-        <e p="Apriori.cs" t="Include" />
-        <e p="AssociationRule.cs" t="Include" />
+        <e p="App.config" t="Include" />
+        <e p="apriori" t="Include">
+          <e p="Apriori.cs" t="Include" />
+          <e p="AssociationRule.cs" t="Include" />
+          <e p="Helper.cs" t="Include" />
+          <e p="ItemSet.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BL.cs" t="Include" />
         <e p="BL.csproj" t="IncludeRecursive" />
-        <e p="Helper.cs" t="Include" />
-        <e p="ItemSet.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
           <e p="Resources.Designer.cs" t="Include" />
@@ -36,6 +41,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.cs" t="Include" />
         <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="IDal.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">

@@ -96,7 +96,7 @@ namespace StudyProject.ViewModel
         #endregion
         public EditBaseViewModel()
         {
-            
+           
             _controls=new List<UserControl>{new EditStore(), new EditGoods()};
             IsCheckedOpen = true;
             InitData();
@@ -104,60 +104,37 @@ namespace StudyProject.ViewModel
         }
         private void InitData()//Инициализация данных из БД при загрузке приложения
         {
-            using (var db = new ConnectDB())
-            {
-                StoredList=new ObservableCollection<BE.Store>(db.Stores.ToList());
-                GoodTypeList = new ObservableCollection<GoodType>(db.GoodTypes.ToList());
-                AddGood=new Model.Good();
+
+                StoredList = MainViewModel.DALimp.getAllStore();
+                GoodTypeList = MainViewModel.DALimp.getAllType();
+                AddGood =new Model.Good();
                 _ = DownloadGoods();
-            }
+            
         }
         #region Command
         #region  GoodTypeStore
         public  ICommand UpdateStore=> new RelayCommand(() =>
         {
-            using (var db=new ConnectDB())
-            {
-                db.Stores.UpdateRange(StoredList);
-                db.SaveChanges();
-                db.RemoveRange(db.Stores.AsQueryable().Where(p=>!StoredList.Select(s=>s.Id).Contains(p.Id)));
-                db.SaveChanges();
-                StoredList = new ObservableCollection<Store>(db.Stores);
-            }
-            
+            MainViewModel.DALimp.UpdateStore(StoredList);
+            StoredList = MainViewModel.DALimp.getAllStore();
         });
         public  ICommand UpdateGoodType=> new RelayCommand(() =>
         {
-            using (var db=new ConnectDB())
-            {
-                db.GoodTypes.UpdateRange(GoodTypeList);
-                db.SaveChanges();
-                db.RemoveRange(db.GoodTypes.AsQueryable().Where(p=>!GoodTypeList.Select(s=>s.Id).Contains(p.Id)));
-                db.SaveChanges();
-                GoodTypeList = new ObservableCollection<GoodType>(db.GoodTypes);
-            }
-            
+            MainViewModel.DALimp.UpdateType(GoodTypeList);
+            GoodTypeList = MainViewModel.DALimp.getAllType();
         });
         public  ICommand CanselStore=> new RelayCommand(() =>
         {
-            using (var db=new ConnectDB())
-            {
-                StoredList=new ObservableCollection<Store>(db.Stores.ToList());
-            }
-            
+            StoredList = MainViewModel.DALimp.getAllStore();
+
         });
         public  ICommand CanselType=> new RelayCommand(() =>
         {
-            using (var db = new ConnectDB())
-            {
-                GoodTypeList = new ObservableCollection<GoodType>(db.GoodTypes.ToList());
-            }
+            GoodTypeList = MainViewModel.DALimp.getAllType();
         });
 
         #endregion
-
         #region Goods
-
         public ICommand OpenPicture => new RelayCommand(() =>
         {
             OpenFileDialog myDialog = new OpenFileDialog();
@@ -179,7 +156,7 @@ namespace StudyProject.ViewModel
                 using (var db = new ConnectDB())
                 {
                     GoodsList = new ObservableCollection<Model.Good>();
-                    foreach (var good in db.Goods.Include(p=>p.Store).Include(p=>p.GoodType).Select(p=>p))
+                    foreach (var good in MainViewModel.DALimp.getAllGood())
                     {
                         var good_new = new Model.Good(good);
                         App.Current.Dispatcher.Invoke((Action)delegate //возвращает код в основной поток, чтобы можно было отрисовать в datagrids
@@ -194,12 +171,10 @@ namespace StudyProject.ViewModel
                 good.Pictures.UpdatePhoto();//Вставляет скаченую  картинку 
             }
         }
-
         public ICommand CreateQRCodeCommand
         {
             get => new DelegateCommand<Model.Good>(CreateQRCode);
         }
-
         private void CreateQRCode(Model.Good good)
         {
             var qr_window=new View.EditBase.CreateQR(good);
@@ -207,15 +182,11 @@ namespace StudyProject.ViewModel
         }
         public  ICommand AddGoodCommand=>new RelayCommand(() =>
         {
-            using (var db=new ConnectDB())
-            {
-                db.Goods.Add(AddGood);
-                db.SaveChanges();
-                AddGood.UpdatePicId();
-                Firebase.UploadPictires(AddGood.Pictures);
+            
+                AddGood.Id = MainViewModel.DALimp.AddGood(AddGood);
                 GoodsList.Add(new Model.Good(AddGood,true));
                 AddGood= new Model.Good();
-            }
+            
         });
         #endregion
 

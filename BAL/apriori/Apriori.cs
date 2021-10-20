@@ -14,12 +14,11 @@ namespace BAL
         List<string> DistinctValues;
         List<ItemSet> ItemSets;
         List<List<string>> main_list;
-        public Apriori(List<List<string>> lists, List<string> list)
+        public Apriori(List<List<string>> lists)
         {
             
             ItemSets = new List<ItemSet>();
             main_list = lists;
-            this.list= list;
             SetDistinctValues(lists);
         }
 

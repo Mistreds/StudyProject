@@ -29,7 +29,7 @@ namespace StudyProject.View.Statistics
             InitializeComponent();
 
         }
-        public void CreateChart1(ViewModel.MainReport reports)
+        public void CreateChart1(BAL.MainReport reports)
         {
             chart.ChartAreas.Clear();
             chart.Series.Clear();
@@ -45,7 +45,7 @@ namespace StudyProject.View.Statistics
             List<double> axisYData = new List<double>();
             if (reports.MostFrequentGood == null)
                 return;
-            var good_list = new ObservableCollection<ViewModel.GoodStatic>(reports.GoodsList);
+            var good_list = new ObservableCollection<BAL.GoodStatic>(reports.GoodsList);
             good_list.Add(reports.MostFrequentGood);
 
             if (good_list.Count == 0)

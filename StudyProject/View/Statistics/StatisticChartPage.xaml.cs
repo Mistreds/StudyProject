@@ -32,7 +32,7 @@ namespace StudyProject.View.Statistics
             InitializeComponent();
 
         }
-        public void CreateChart1(ObservableCollection<ViewModel.ReportMonth> reports)
+        public void CreateChart1(ObservableCollection<BAL.ReportMonth> reports)
         {
             chart.ChartAreas.Clear();
             chart.Series.Clear();
@@ -54,7 +54,7 @@ namespace StudyProject.View.Statistics
                 series.IsVisibleInLegend = true;
                 List<string> axisXData = new List<string>();
                 List<double> axisYData = new List<double>();
-                foreach (var r in MainViewModel.StatisticsViewModel.Month.Where(p => !string.IsNullOrEmpty(p)))
+                foreach (var r in BAL.BALimp.Month.Where(p => !string.IsNullOrEmpty(p)))
                 {
                     axisXData.Add(r);
                     var rep = reports.Where(p => p.Month == r && p.Year == a).FirstOrDefault();

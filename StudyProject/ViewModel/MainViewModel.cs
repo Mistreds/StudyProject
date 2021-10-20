@@ -16,7 +16,8 @@ namespace StudyProject
         public static BasketViewModel BasketViewModel;//ViewModel для работы с модулем "корзина"
         public static StatisticsViewModel StatisticsViewModel;//ViewModel для работы с модулем "статистика"
         private UserControl _main_control;
-
+        public static DAL.DALimp DALimp;
+        public static BAL.BALimp BALimp;
         public UserControl MainControl
         {
             get => _main_control;
@@ -30,10 +31,14 @@ namespace StudyProject
         private List<UserControl> Controls;
         public MainViewModel()
         {
+
             var firebase = new DAL.Firebase();
+            DALimp = new DAL.DALimp();
+            BALimp=new BAL.BALimp();
             EditBaseViewModel = new EditBaseViewModel();
             BasketViewModel = new BasketViewModel();
             StatisticsViewModel=new StatisticsViewModel();
+           
             Controls = new List<UserControl> { new View.EditBase.MainEditPage(), new MainBasketPage(), new View.Statistics.StatisticsMain() };
 
         }
